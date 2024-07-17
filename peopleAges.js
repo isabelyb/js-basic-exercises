@@ -1,7 +1,10 @@
+// importar el modulo para leer datos de la consola
 const readline = require('readline');
 
+//declarar un arreglo vacio para guardar las edades
 let peopleAges = [];
 
+//funcion para agregar edades al arreglo
 function addAge(age) {
     if (age >= 1 && age <= 120) {
         peopleAges.push(age);
@@ -10,6 +13,7 @@ function addAge(age) {
     }
 }
 
+//funcion para contar las edades
 function countAges() {
     let underAge = 0;
     let ofAge = 0;
@@ -40,7 +44,8 @@ function countAges() {
 
     let averageAge = totalAges / peopleAges.length;
 
-    
+ 
+    //Imprimir resultados
     console.log('------------');
     console.log('Resultados:');
     console.log('------------');
@@ -52,6 +57,12 @@ function countAges() {
     console.log(`5. Edad más alta: ${highestAge}`);
     console.log(`6. Promedio de edades: ${averageAge}`);
 }
+
+//funcion para preguntar la edad
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
 
 function askAge(rl, count) {
     if (count < 10) {
@@ -71,9 +82,5 @@ function askAge(rl, count) {
     }
 }
 
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
-
+//iniciar el programa
 askAge(rl, 0);
